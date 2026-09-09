@@ -1,0 +1,18 @@
+import React from './deps/react.js';
+export default React;
+export const StrictMode = React.StrictMode;
+export const Fragment = React.Fragment;
+export const createElement = React.createElement;
+export const createContext = React.createContext;
+export const forwardRef = React.forwardRef;
+export const memo = React.memo;
+export const useState = React.useState;
+export const useEffect = React.useEffect;
+export const useMemo = React.useMemo;
+export const useCallback = React.useCallback;
+export const useContext = React.useContext;
+export const useRef = React.useRef;
+export const useReducer = React.useReducer;
+export const useLayoutEffect = React.useLayoutEffect;
+export const useId = React.useId;
+export const useTransition = React.useTransition;

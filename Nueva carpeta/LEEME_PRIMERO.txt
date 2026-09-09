@@ -1,0 +1,22 @@
+SALUDDATA CRM - HOSPITAL MARIA AUXILIADORA
+
+1. Extrae toda la carpeta del ZIP.
+2. Ejecuta INICIAR_CRM.bat.
+   - La primera vez instalará automáticamente FastAPI y creará SQLite.
+3. Entra con:
+   Usuario: admin
+   Contraseña: Cambiar123!
+4. Como el correo aún no está configurado, el código de verificación se mostrará en pantalla en modo de prueba.
+5. Ve a Importar datos y selecciona:
+   sample-data\DATOS HOSPITAL MARIA AUXILIADORA.csv
+6. Espera a que termine la importación. El archivo tiene 450,629 registros.
+7. El Dashboard y Reportes se actualizarán con los datos reales.
+
+PARA ENVIAR EL CODIGO A GMAIL:
+- Ejecuta configurar_gmail.bat una vez y usa una contraseña de aplicación de Google.
+
+BASE DE DATOS:
+- SQLite viene integrado con Python mediante sqlite3.
+- Archivo: backend\data\saluddata.db
+- No necesitas instalar MySQL, PostgreSQL, Docker ni SQLite por separado.
+- Node.js tampoco es necesario para ejecutar esta versión; el frontend React ya está preparado.

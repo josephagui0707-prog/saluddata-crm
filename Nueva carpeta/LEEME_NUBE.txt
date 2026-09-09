@@ -1,0 +1,35 @@
+SALUDDATA CRM - VERSION NUBE (RENDER)
+=====================================
+
+Esta carpeta ya está preparada para subir a GitHub y desplegar en Render.
+NO necesitas subir el CSV de 55 MB: la base SQLite con el dataset ya viene
+comprimida en cloud_seed/saluddata.db.gz y se restaura automáticamente.
+
+PASOS RAPIDOS
+1) Sube TODO el contenido de esta carpeta a un repositorio de GitHub.
+2) Entra a https://render.com y conecta GitHub.
+3) New > Blueprint.
+4) Selecciona el repositorio. Render detectará render.yaml.
+5) Cuando lo pida, completa:
+   ADMIN_EMAIL = tu correo o el correo que usarás para el administrador
+   ADMIN_PASSWORD = una contraseña de al menos 8 caracteres
+6) Crea el Blueprint y espera el deploy.
+7) Abre la URL https://<nombre>.onrender.com
+
+LOGIN
+Usuario: admin
+Contraseña: la que ingresaste en ADMIN_PASSWORD.
+
+Por defecto EMAIL_DEV_MODE=true, por lo que el código de 6 dígitos se muestra
+en la pantalla de login. Para enviarlo realmente por Gmail, consulta README_NUBE.md.
+
+IMPORTANTE
+Render Free no ofrece disco persistente. La base precargada vuelve al estado
+original cuando Render crea una instancia nueva. Para una exposición esto es
+útil porque siempre tendrás los reportes listos.
+
+
+NUEVO - REGISTRO:
+En la pantalla de login aparece "Regístrate". Cada usuario puede crear una cuenta
+con su propio correo. El sistema guardará ese correo y enviará allí sus códigos
+de verificación cuando el proveedor de correo esté configurado.
