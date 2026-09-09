@@ -15,12 +15,12 @@ import { api } from '../api';
 
 // Columnas opcionales del modal — ID siempre visible, estas se activan con botones
 const PREVIEW_COLUMNS = [
-  { key: 'ESPECIALIDAD', label: 'Especialidad' },
-  { key: 'SEXO',         label: 'Sexo' },
-  { key: 'EDAD',         label: 'Edad' },
-  { key: 'SEGURO',       label: 'Seguro' },
-  { key: 'ATENDIDO',     label: 'Atendido' },
-  { key: 'MONTO',        label: 'Monto' },
+  { key: 'especialidad', label: 'Especialidad' },
+  { key: 'sexo',         label: 'Sexo' },
+  { key: 'edad',         label: 'Edad' },
+  { key: 'seguro',       label: 'Seguro' },
+  { key: 'atendido',     label: 'Atendido' },
+  { key: 'monto',        label: 'Monto' },
 ];
 
 function Historial() {
@@ -327,26 +327,21 @@ function Historial() {
                     {previewData.map((row, idx) => (
                       <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9', backgroundColor: idx % 2 === 0 ? '#ffffff' : '#f8fafc' }}>
                         
-                        {/* Intenta leer ID o id */}
+                        {/* id en minúsculas tal como viene en el JSON */}
                         <td style={{ padding: '8px', fontWeight: 'bold', color: '#334155' }}>
-                          {row.ID ?? row.id}
+                          {row.id}
                         </td>
                         
-                        {PREVIEW_COLUMNS.filter(col => visibleCols.includes(col.key)).map(col => {
-                          {/* Busca el valor tanto en MAYÚSCULAS como en minúsculas */}
-                          const value = row[col.key] ?? row[col.key.toLowerCase()];
-                          
-                          return (
-                            <td key={col.key} style={{ padding: '8px', color: col.key === 'MONTO' ? '#0f4c5c' : '#475569', fontWeight: col.key === 'MONTO' ? 'bold' : 'normal' }}>
-                              {col.key === 'MONTO' ? `S/ ${value ?? 0}` : (value ?? '')}
-                            </td>
-                          );
-                        })}
+                        {PREVIEW_COLUMNS.filter(col => visibleCols.includes(col.key)).map(col => (
+                          <td key={col.key} style={{ padding: '8px', color: col.key === 'monto' ? '#0f4c5c' : '#475569', fontWeight: col.key === 'monto' ? 'bold' : 'normal' }}>
+                            {/* Valida monto en minúsculas para darle formato */}
+                            {col.key === 'monto' ? `S/ ${row[col.key]}` : row[col.key]}
+                          </td>
+                        ))}
                         
                       </tr>
                     ))}
                   </tbody>
-
                 </table>
               </div>
             )}
