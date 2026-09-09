@@ -326,15 +326,27 @@ function Historial() {
                   <tbody>
                     {previewData.map((row, idx) => (
                       <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9', backgroundColor: idx % 2 === 0 ? '#ffffff' : '#f8fafc' }}>
-                        <td style={{ padding: '8px', fontWeight: 'bold', color: '#334155' }}>{row.ID}</td>
-                        {PREVIEW_COLUMNS.filter(col => visibleCols.includes(col.key)).map(col => (
-                          <td key={col.key} style={{ padding: '8px', color: col.key === 'MONTO' ? '#0f4c5c' : '#475569', fontWeight: col.key === 'MONTO' ? 'bold' : 'normal' }}>
-                            {col.key === 'MONTO' ? `S/ ${row[col.key]}` : row[col.key]}
-                          </td>
-                        ))}
+                        
+                        {/* Intenta leer ID o id */}
+                        <td style={{ padding: '8px', fontWeight: 'bold', color: '#334155' }}>
+                          {row.ID ?? row.id}
+                        </td>
+                        
+                        {PREVIEW_COLUMNS.filter(col => visibleCols.includes(col.key)).map(col => {
+                          {/* Busca el valor tanto en MAYÚSCULAS como en minúsculas */}
+                          const value = row[col.key] ?? row[col.key.toLowerCase()];
+                          
+                          return (
+                            <td key={col.key} style={{ padding: '8px', color: col.key === 'MONTO' ? '#0f4c5c' : '#475569', fontWeight: col.key === 'MONTO' ? 'bold' : 'normal' }}>
+                              {col.key === 'MONTO' ? `S/ ${value ?? 0}` : (value ?? '')}
+                            </td>
+                          );
+                        })}
+                        
                       </tr>
                     ))}
                   </tbody>
+
                 </table>
               </div>
             )}
