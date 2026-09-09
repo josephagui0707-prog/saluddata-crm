@@ -11,6 +11,7 @@ function Configuracion() {
     setTimeout(() => setSavedMessage(false), 3000);
   };
 
+  
   return (
     <div className="page" style={{ padding: '24px', backgroundColor: '#f0f7f7', minHeight: '100vh' }}>
       
